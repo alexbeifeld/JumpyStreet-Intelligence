@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
             }
-            if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+            else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
             {
                 movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
             }
