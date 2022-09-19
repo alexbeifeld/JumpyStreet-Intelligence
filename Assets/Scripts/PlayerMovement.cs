@@ -28,4 +28,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water"))
+        {
+            Debug.Log("You died");
+            FrogDeath();
+            //Trigger death by water
+        }
+    }
+    private void FrogDeath()
+    {
+        //Handles frog dying
+        gameObject.SetActive(false);
+    }
 }
