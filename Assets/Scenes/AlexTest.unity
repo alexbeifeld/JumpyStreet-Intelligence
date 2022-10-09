@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74802866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73246014, y: -1.5064284, z: 0.030527417}
+  m_LocalPosition: {x: -0.73246014, y: -1.5064284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -623,7 +623,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258642867}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -841,6 +841,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1009,11 +1021,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8913918314282115443, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
       propertyPath: maxTreeSpawn
-      value: 18
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8913918314282115443, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
       propertyPath: minTreeSpawn
-      value: 12
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

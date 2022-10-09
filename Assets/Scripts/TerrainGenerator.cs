@@ -20,7 +20,7 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private int waterMinSpawned;
     [SerializeField] private int waterMaxSpawned;
     //Starting positions that updates as new terrains are being created along the y axis.
-    private Vector2 currentPosition = new Vector2(0, 4.5f);
+    private Vector3 currentPosition = new Vector3(0, 4.5f, 1);
     [Space(10)]
     //List of the terrains being generated (will be used to delete when off screen)
     [SerializeField] private List<GameObject> currentTerrains = new List<GameObject>();
@@ -36,7 +36,10 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            SpawnTerrain();
+            if (currentTerrains.Count <= 13)
+            {
+                SpawnTerrain();
+            }
         }
     }
 

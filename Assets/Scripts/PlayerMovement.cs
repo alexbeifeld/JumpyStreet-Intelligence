@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
@@ -27,6 +26,45 @@ public class PlayerMovement : MonoBehaviour
                 movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
             }
         }
+
+
+        RaycastHit2D hitDown = Physics2D.Raycast(transform.position, -transform.up, 1f);
+        RaycastHit2D hitUp = Physics2D.Raycast(transform.position, transform.up, 1f);
+        RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, -transform.right, 1f);
+        RaycastHit2D hitRight = Physics2D.Raycast(transform.position, transform.right, 1f);
+
+        if(hitDown.collider != null)
+        {
+            if (hitDown.collider.name != "Player")
+            {
+                Debug.Log(hitDown.collider.name);
+            }
+        }
+
+        if (hitUp.collider != null)
+        {
+            if (hitUp.collider.name != "Player")
+            {
+                Debug.Log(hitUp.collider.name);
+            }
+        }
+
+        if (hitLeft.collider != null)
+        {
+            if (hitLeft.collider.name != "Player")
+            {
+                Debug.Log(hitLeft.collider.name);
+            }
+        }
+
+        if (hitRight.collider != null)
+        {
+            if (hitRight.collider.name != "Player")
+            {
+                Debug.Log(hitRight.collider.name);
+            }
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,7 +74,20 @@ public class PlayerMovement : MonoBehaviour
             FrogDeath();
             //Trigger death by water
         }
+        if (other.gameObject.CompareTag("Log"))
+        {
+            transform.parent = other.gameObject.transform;
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Log"))
+        {
+            transform.parent = null;
+        }
+    }
+
     private void FrogDeath()
     {
         //Handles frog dying

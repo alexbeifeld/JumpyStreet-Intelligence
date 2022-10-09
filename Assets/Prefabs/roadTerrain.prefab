@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3480143206310737714}
   - component: {fileID: -6597237613020903190}
   - component: {fileID: 3980887471633669225}
+  - component: {fileID: -6011185711620178837}
   m_Layer: 0
   m_Name: roadTerrain
   m_TagString: Road
@@ -124,3 +125,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85814d38458ca014d984c643ea948da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6011185711620178837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443609690317767060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a0c25484b060346b3dde7e2ae12e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 5206499202409602631, guid: 32320b7704c83e04bbf6d5b1b03b3c81, type: 3}
+  spawnPoint: {x: 0, y: 0, z: 0}
