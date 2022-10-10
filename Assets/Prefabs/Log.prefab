@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5206499202409602629}
   - component: {fileID: 5206499202409602628}
   - component: {fileID: 6420981667308558978}
+  - component: {fileID: -9174488447527341934}
   m_Layer: 0
   m_Name: Log
   m_TagString: Log
@@ -98,3 +99,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!65 &-9174488447527341934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206499202409602631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
