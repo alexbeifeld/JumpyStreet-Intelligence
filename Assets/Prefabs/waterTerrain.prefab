@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9108834892316881353}
   - component: {fileID: -5924525136825591599}
   - component: {fileID: 6017896483280050630}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: waterTerrain
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9108834892316881353
 SpriteRenderer:
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.06074225, g: 0.66175586, b: 0.8584906, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 4632863612214104782, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -125,4 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 5206499202409602631, guid: 1235369e4ec3781439d79cd1d6d66184, type: 3}
-  spawnPoint: {x: 0, y: 0, z: 0}
+  minTimeSpawn: 2
+  maxTimeSpawn: 5

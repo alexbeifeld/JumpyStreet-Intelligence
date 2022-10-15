@@ -34,12 +34,9 @@ public class TerrainGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (currentTerrains.Count <= 13)
         {
-            if (currentTerrains.Count <= 13)
-            {
-                SpawnTerrain();
-            }
+           SpawnTerrain();
         }
     }
 
@@ -67,25 +64,12 @@ public class TerrainGenerator : MonoBehaviour
             if (!currentTerrains[lastIndex].CompareTag("Road"))
             {
                 Debug.Log("Generating more road");
-                for (int i = 0; i < Random.Range(grassMinSpawned, grassMaxSpawned + 1); i++)
+                for (int i = 0; i < Random.Range(roadMinSpawned, roadMaxSpawned + 1); i++)
                 {
                     GenerateTerrain(1);
                 }
             }
         }      
-        
-        else if (currentTerrains[lastIndex].CompareTag("Water"))
-        {
-            lastIndex--;
-            if (!currentTerrains[lastIndex].CompareTag("Water"))
-            {
-                Debug.Log("Generating more road");
-                for (int i = 0; i < Random.Range(grassMinSpawned, grassMaxSpawned + 1); i++)
-                {
-                    GenerateTerrain(2);
-                }
-            }
-        }
 
         else
         {

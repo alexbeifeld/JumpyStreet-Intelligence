@@ -972,8 +972,8 @@ MonoBehaviour:
   grassMaxSpawned: 5
   roadMinSpawned: 2
   roadMaxSpawned: 4
-  waterMinSpawned: 2
-  waterMaxSpawned: 5
+  waterMinSpawned: 1
+  waterMaxSpawned: 0
   currentTerrains:
   - {fileID: 1128736510}
   - {fileID: 1335642305}
@@ -2683,37 +2683,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6681616928677144931, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
   m_PrefabInstance: {fileID: 2056803770}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2100490819
+--- !u!1 &2100490819 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2100490819, guid: d368cd2431963ae45906412a73745e07, type: 3}
+  m_PrefabInstance: {fileID: 5745410232907527188}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2100490820}
-  m_Layer: 0
-  m_Name: CameraMovePoint
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2100490820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100490819}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5745410232907527193}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5745410232907527188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2736,7 +2710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2770,67 +2744,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7439883132824420854, guid: d368cd2431963ae45906412a73745e07, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2100490820}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d368cd2431963ae45906412a73745e07, type: 3}
---- !u!1 &5745410232907527189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5745410232769566118, guid: d368cd2431963ae45906412a73745e07, type: 3}
-  m_PrefabInstance: {fileID: 5745410232907527188}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5745410232907527193 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5745410232769566113, guid: d368cd2431963ae45906412a73745e07, type: 3}
-  m_PrefabInstance: {fileID: 5745410232907527188}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &5745410232907527194
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5745410232907527189}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &5745410232907527197
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5745410232907527189}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0

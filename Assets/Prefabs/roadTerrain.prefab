@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2808912402566648583}
   - component: {fileID: 3480143206310737714}
   - component: {fileID: -6597237613020903190}
-  - component: {fileID: 3980887471633669225}
   - component: {fileID: -6011185711620178837}
   m_Layer: 0
   m_Name: roadTerrain
@@ -33,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3480143206310737714
 SpriteRenderer:
@@ -75,9 +74,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13149695, g: 0.13905539, b: 0.14150941, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 2751951958336284784, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,18 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3980887471633669225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8443609690317767060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85814d38458ca014d984c643ea948da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-6011185711620178837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,4 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 5206499202409602631, guid: 32320b7704c83e04bbf6d5b1b03b3c81, type: 3}
-  spawnPoint: {x: 0, y: 0, z: 0}
+  minTimeSpawn: 1
+  maxTimeSpawn: 5
