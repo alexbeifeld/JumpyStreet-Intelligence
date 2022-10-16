@@ -13,10 +13,19 @@ public class MovingObjectSpawner : MonoBehaviour
     [SerializeField] private int minTimeSpawn;
     [SerializeField] private int maxTimeSpawn;
 
+    [SerializeField] private bool road;
+
     // Start is called before the first frame update
     void Start()
     {
-        spawnPoint = new Vector3(11, gameObject.transform.position.y, 0);
+        if (road)
+        {
+            spawnPoint = new Vector3(11, gameObject.transform.position.y+.5f, 0);
+        }
+        else
+        {
+            spawnPoint = new Vector3(11, gameObject.transform.position.y, 0);
+        }
         StartCoroutine(SpawnOnInterval());
     }
 
@@ -29,7 +38,6 @@ public class MovingObjectSpawner : MonoBehaviour
     private void SpawnObject()
     {
         GameObject go = Instantiate(prefabToSpawn, spawnPoint, Quaternion.identity);
-        go.transform.parent = gameObject.transform;
     }
 
     private IEnumerator SpawnOnInterval()

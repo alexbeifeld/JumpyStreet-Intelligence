@@ -127,3 +127,4 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 5206499202409602631, guid: 32320b7704c83e04bbf6d5b1b03b3c81, type: 3}
   minTimeSpawn: 1
   maxTimeSpawn: 5
+  road: 1

@@ -18,8 +18,12 @@ public class PlayerMovement : MonoBehaviour
         movePoint.parent = null;
     }
 
-    void FixedUpdate()
+    private void Update()
     {
+        if (onLog)
+        {
+            transform.position += moveSpeed * Time.deltaTime * Vector3.left;
+        }
         RaycastHit2D hitDown = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - .5f), -transform.up, 11f);
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y - .5f), -transform.up, Color.red);
         RaycastHit2D hitUp = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.up, 11f);
@@ -153,15 +157,10 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-
-
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Log"))
-        {
-            transform.parent = other.gameObject.transform;
-        }
         if (other.gameObject.CompareTag("Water"))
         {
             if (!onLog)
@@ -170,14 +169,6 @@ public class PlayerMovement : MonoBehaviour
                 //FrogDeath();
                 //Trigger death by water
             }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Log"))
-        {
-            gameObject.transform.parent = null;
         }
     }
 
