@@ -20,109 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (onLog)
-        {
-            transform.position += moveSpeed * Time.deltaTime * Vector3.left;
-        }
-        RaycastHit2D hitDown = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - .5f), -transform.up, 11f);
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y - .5f), -transform.up, Color.red);
-        RaycastHit2D hitUp = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + .5f), Vector2.up, 11f);
-        Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + .5f), transform.up, Color.red);
-        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector3(transform.position.x - .5f, transform.position.y), -transform.right, 11f);
-        Debug.DrawRay(new Vector3(transform.position.x - .5f, transform.position.y), -transform.right, Color.red);
-        RaycastHit2D hitRight = Physics2D.Raycast(new Vector3(transform.position.x + .5f, transform.position.y), transform.right, 11f);
-        Debug.DrawRay(new Vector3(transform.position.x + .5f, transform.position.y), transform.right, Color.red);
-
-        if (hitDown.collider != null)
-        {
-            if (hitDown.collider.name != "Player")
-            {
-                //Debug.Log(hitDown.collider.name);
-            }
-            if (hitDown.collider.CompareTag("Tree"))
-            {
-                noDown = true;
-            }
-            else
-            {
-                noDown = false;
-            }
-            if (hitDown.collider.CompareTag("Water"))
-            {
-                Collider2D waterCollider = hitDown.collider;
-                if (hitDown.collider.CompareTag("Log"))
-                {
-                    onLog = true;
-                    Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), waterCollider);
-                }
-                else
-                {
-                    onLog = false;
-                }
-            }
-        }
-
-        if (hitUp.collider != null)
-        {
-            if (hitUp.collider.name != "Player")
-            {
-                Debug.Log(hitUp.collider.name);
-            }
-            if (hitUp.collider.CompareTag("Tree"))
-            {
-                noUp = true;
-            }
-            else
-            {
-                noUp = false;
-            }
-            if (hitUp.collider.CompareTag("Water"))
-            {
-                Debug.Log("Water ahead");
-                Collider2D waterCollider = hitUp.collider;
-                if (hitUp.collider.CompareTag("Log"))
-                {
-                    onLog = true;
-                    Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), waterCollider);
-                }
-                else
-                {
-                    onLog = false;
-                }
-            }
-        }
-
-        if (hitLeft.collider != null)
-        {
-            if (hitLeft.collider.name != "Player")
-            {
-                //Debug.Log(hitLeft.collider.name);
-            }
-            if (hitLeft.collider.CompareTag("Tree"))
-            {
-                noLeft = true;
-            }
-            else
-            {
-                noLeft = false;
-            }
-        }
-
-        if (hitRight.collider != null)
-        {
-            if (hitRight.collider.name != "Player")
-            {
-                //Debug.Log(hitRight.collider.name);
-            }
-            if (hitRight.collider.CompareTag("Tree"))
-            {
-                noRight = true;
-            }
-            else
-            {
-                noRight = false;
-            }
-        }
+        CheckBounds();
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
@@ -159,16 +57,112 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        RaycastHit2D hitDown = Physics2D.Raycast(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y - .5f), -Vector2.up, 11);
+        Debug.DrawRay(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y - .5f), -Vector2.up, Color.red);
+        RaycastHit2D hitUp = Physics2D.Raycast(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y + .5f), Vector2.up, 11);
+        Debug.DrawRay(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y + .5f), Vector2.up, Color.red);
+        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector3(movePoint.transform.position.x - .5f, movePoint.transform.position.y), -Vector2.right, 11);
+        Debug.DrawRay(new Vector3(movePoint.transform.position.x - .5f, movePoint.transform.position.y), -Vector2.right, Color.red);
+        RaycastHit2D hitRight = Physics2D.Raycast(new Vector3(movePoint.transform.position.x + .5f, movePoint.transform.position.y), Vector2.right, 11);
+        Debug.DrawRay(new Vector3(movePoint.transform.position.x + .5f, movePoint.transform.position.y), Vector2.right, Color.red);
+
+        if (hitDown.collider != null)
+        {
+            if (hitDown.collider.name != "Player")
+            {
+                //Debug.Log(hitDown.collider.name);
+            }
+            if (hitDown.collider.CompareTag("Tree"))
+            {
+                noDown = true;
+            }
+            else
+            {
+                noDown = false;
+            }
+        }
+
+        if (hitUp.collider != null)
+        {
+            if (hitUp.collider.name != "Player")
+            {
+                Debug.Log(hitUp.collider.name);
+            }
+            if (hitUp.collider.CompareTag("Tree"))
+            {
+                noUp = true;
+            }
+            else
+            {
+                noUp = false;
+            }
+        }
+
+        if (hitLeft.collider != null)
+        {
+            if (hitLeft.collider.name != "Player")
+            {
+                //Debug.Log(hitLeft.collider.name);
+            }
+            if (hitLeft.collider.CompareTag("Tree"))
+            {
+                noLeft = true;
+            }
+            else
+            {
+                noLeft = false;
+            }
+        }
+
+        if (hitRight.collider != null)
+        {
+            if (hitRight.collider.name != "Player")
+            {
+                //Debug.Log(hitRight.collider.name);
+            }
+            if (hitRight.collider.CompareTag("Tree"))
+            {
+                noRight = true;
+            }
+            else
+            {
+                noRight = false;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Log"))
+        {
+            onLog = true;
+            movePoint.transform.SetParent(other.transform);
+        }
         if (other.gameObject.CompareTag("Water"))
         {
             if (!onLog)
             {
-                Debug.Log("You died");
-                //FrogDeath();
+                Debug.Log("You died by water");
+                FrogDeath();
                 //Trigger death by water
             }
+        }
+        if (other.gameObject.CompareTag("Car"))
+        {
+            Debug.Log("You died by car");
+            FrogDeath();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Log"))
+        {
+            movePoint.transform.SetParent(null);
+            onLog = false;
+            PlayerXPositionCorrection();
         }
     }
 
@@ -178,4 +172,27 @@ public class PlayerMovement : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void PlayerXPositionCorrection()
+    {
+        Debug.Log("Correcting x position");
+        transform.position = new Vector2(Mathf.Round(transform.position.x), transform.position.y);
+    }
+
+    private void CheckBounds()
+    {
+        //&& movePoint.position.x - 1 != -7 && movePoint.position.x + 1 != 7 && movePoint.position.y - 1 != -5)
+
+        if (movePoint.position.x - 1 <= -7)
+        {
+            noLeft = true;
+        }
+        if (movePoint.position.x + 1 >= 7)
+        {
+            noRight = true;
+        }
+        if (movePoint.position.y - 1 <= -5)
+        {
+            noDown = true;
+        }
+    }
 }

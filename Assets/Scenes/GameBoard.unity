@@ -155,7 +155,7 @@ Transform:
   - {fileID: 1376385908}
   - {fileID: 1778847078}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &127238501
 PrefabInstance:
@@ -167,7 +167,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6681616928677144929, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6681616928677144929, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -774,7 +774,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981510020
 GameObject:
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e29809869472647a8ac586d38b932f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTerrainCount: 50
+  maxTerrainCount: 30
   terrains:
   - {fileID: 6681616928677144931, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
   - {fileID: 8443609690317767060, guid: e53df9b30d4ba174fb6662c3ccc1fc9d, type: 3}
@@ -985,6 +985,7 @@ MonoBehaviour:
   - {fileID: 381528533}
   - {fileID: 1433168253}
   - {fileID: 127238502}
+  player: {fileID: 0}
 --- !u!4 &1066938794
 Transform:
   m_ObjectHideFlags: 0
@@ -1636,7 +1637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6681616928677144929, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6681616928677144929, guid: 25d0bf21443260840a4634cb5148322e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -33,7 +33,6 @@ public class Grass : MonoBehaviour
             int spawnXIndex = Random.Range(0, spawnLocations.Count);
             GameObject newTree = Instantiate(treePrefab, new Vector3(spawnLocations[spawnXIndex].x, gameObject.transform.position.y+.5f, 0), Quaternion.identity);
             newTree.transform.parent = gameObject.transform;
-            newTree.GetComponent<SpriteRenderer>().sortingOrder = 5;
             spawnLocations.RemoveAt(spawnXIndex);
         }
     }

@@ -25,18 +25,25 @@ public class TerrainGenerator : MonoBehaviour
     //List of the terrains being generated (will be used to delete when off screen)
     [SerializeField] private List<GameObject> currentTerrains = new List<GameObject>();
 
+    [SerializeField] private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         SpawnTerrain();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentTerrains.Count <= 13)
+        if (currentTerrains.Count <= 21 && currentTerrains.Count < maxTerrainCount)
         {
            SpawnTerrain();
+        }
+        if (currentTerrains[0].transform.position.y <= player.transform.position.y - 12)
+        {
+            RemoveTerrain();
         }
     }
 
@@ -90,5 +97,11 @@ public class TerrainGenerator : MonoBehaviour
             Destroy(currentTerrains[0]);
             currentTerrains.RemoveAt(0);
         }
+    }
+
+    private void RemoveTerrain()
+    {
+        Destroy(currentTerrains[0]);
+        currentTerrains.RemoveAt(0);
     }
 }

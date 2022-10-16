@@ -9,6 +9,7 @@ TagManager:
   - Water
   - Log
   - Car
+  - Tree
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Terrains
+    uniqueID: 2141719587
+    locked: 0
+  - name: Player
+    uniqueID: 1499906209
+    locked: 0
+  - name: Car
+    uniqueID: 1432453591
+    locked: 0
+  - name: Tree
+    uniqueID: 3569086355
+    locked: 0
+  - name: UI
+    uniqueID: 2273691801
+    locked: 0
+  - name: Log
+    uniqueID: 849814413
     locked: 0
