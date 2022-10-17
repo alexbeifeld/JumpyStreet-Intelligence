@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
     private void PlayerXPositionCorrection()
     {
         Debug.Log("Correcting x position");
-        transform.position = new Vector2(Mathf.Round(transform.position.x), transform.position.y);
+        movePoint.position = new Vector2(Mathf.Round(transform.position.x), transform.position.y);
     }
 
     private void CheckBounds()
@@ -217,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
         if (movePoint.position.x - 1 <= -7)
         {
             noLeft = true;
+            movePoint.position = new Vector3(-7f, movePoint.transform.position.y);
         }
         if (movePoint.position.x + 1 >= 7)
         {
