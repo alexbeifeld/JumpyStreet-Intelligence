@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject sound;
     [SerializeField] private GameObject settingsPanel;
     public string MainMenu;
-
+    [SerializeField] private bool settings = false;
+    [SerializeField] TMP_Text gameOverText;
     void Start()
     {
         settingsPanel.SetActive(false);
@@ -62,9 +63,21 @@ public class GameManager : MonoBehaviour
 
     public void OnClickSettingsButton()
     {
-        Debug.Log("clicked settings button");
-        settingsPanel.SetActive(true);
-        Time.timeScale = 0;
+        if (!settings)
+        {
+            settings = true;
+            Debug.Log("clicked settings button");
+            settingsPanel.SetActive(true);
+            Time.timeScale = 0;
+            gameOverText.text = "Game Paused";
+        }
+        else
+        {
+            Debug.Log("clicked settings button");
+            settingsPanel.SetActive(false);
+            Time.timeScale = 1;
+            settings = false;
+        }
     }
 
     public void OnClickPlayButton()
