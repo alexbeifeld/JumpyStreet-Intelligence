@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     movePoint.position += new Vector3(0f, 1f, 0f);
                     playerMove.Play();
-                    score = score++;
+                    score++;
                 }
             }
             else if (Input.GetAxisRaw("Vertical") == -1f)
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     movePoint.position += new Vector3(0f, -1f, 0f);
                     playerMove.Play();
-                    score = score--;
+                    score--;
                 }
             }
         }
