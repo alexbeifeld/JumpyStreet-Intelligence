@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject noSound;
     [SerializeField] private GameObject sound;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject instructionsPanel;
     public string MainMenu;
     [SerializeField] private bool settings = false;
     [SerializeField] TMP_Text gameOverText;
     void Start()
     {
         settingsPanel.SetActive(false);
+        Time.timeScale = 1;
         /*if (!PlayerPrefs.HasKey("musicVolume"))
         {
             PlayerPrefs.SetFloat("musicVolume", .5f);
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void OnClickInstructionsButton()
     {
-
+        instructionsPanel.SetActive(true);
     }
 
     public void OnClickSettingsButton()
