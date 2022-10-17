@@ -192,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
         {
             movePoint.transform.SetParent(null);
             onLog = false;
-            PlayerXPositionCorrection();
+            StartCoroutine(PlayerXPositionCorrection());
         }
     }
 
@@ -204,8 +204,9 @@ public class PlayerMovement : MonoBehaviour
         gameOverText.text = "Congradulations you made it " + score + " m";
     }
 
-    private void PlayerXPositionCorrection()
+    private IEnumerator PlayerXPositionCorrection()
     {
+        yield return new WaitForSeconds(.25f);
         Debug.Log("Correcting x position");
         movePoint.position = new Vector2(Mathf.Round(transform.position.x), transform.position.y);
     }
@@ -217,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
         if (movePoint.position.x - 1 <= -7)
         {
             noLeft = true;
-            movePoint.position = new Vector3(-7f, movePoint.transform.position.y);
+            movePoint.position = new Vector3(-6.99f, movePoint.transform.position.y);
         }
         if (movePoint.position.x + 1 >= 7)
         {
