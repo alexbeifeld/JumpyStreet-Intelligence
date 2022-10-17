@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,9 +14,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool noUp = false;
     [SerializeField] private bool noDown = false;
 
+    [SerializeField] TMP_Text scoreText;
+    private int score;
+
+    private AudioSource playerMove;
     void Start()
     {
         movePoint.parent = null;
+        playerMove = GetComponent<AudioSource>();
+        scoreText.text = "0 m";
     }
 
     private void Update()
@@ -31,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!noRight)
                 {
                     movePoint.position += new Vector3(1f, 0f, 0f);
+                    playerMove.Play();
                 }
             }
             else if (Input.GetAxisRaw("Horizontal") == -1f)
@@ -38,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!noLeft)
                 {
                     movePoint.position += new Vector3(-1f, 0f, 0f);
+                    playerMove.Play();
                 }
             }
             else if (Input.GetAxisRaw("Vertical") == 1f)
@@ -45,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
                 if (!noUp)
                 {
                     movePoint.position += new Vector3(0f, 1f, 0f);
+                    playerMove.Play();
+                    score = score++;
                 }
             }
             else if (Input.GetAxisRaw("Vertical") == -1f)
@@ -52,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
                 if (!noDown)
                 {
                     movePoint.position += new Vector3(0f, -1f, 0f);
+                    playerMove.Play();
+                    score = score--;
                 }
             }
         }
@@ -59,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        scoreText.text = score.ToString() + " m";
         RaycastHit2D hitDown = Physics2D.Raycast(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y - .5f), -Vector2.up, 11);
         Debug.DrawRay(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y - .5f), -Vector2.up, Color.red);
         RaycastHit2D hitUp = Physics2D.Raycast(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y + .5f), Vector2.up, 11);

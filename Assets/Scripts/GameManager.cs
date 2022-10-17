@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Slider volumeChanger;
+    [SerializeField] Slider volumeChanger;
     [SerializeField] private GameObject noSound;
     [SerializeField] private GameObject sound;
     [SerializeField] private GameObject settingsPanel;
@@ -16,15 +16,36 @@ public class GameManager : MonoBehaviour
     {
         settingsStatus = false;
         settingsPanel.SetActive(false);
-        volumeChanger.value = 50;
+        /*if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", .5f);
+            Load();
+        }
+        else
+        {
+            Load();
+        }*/
     }
 
     
     void FixedUpdate()
     {
-        VolumeChanger();
+        //VolumeChanger();
     }
 
+    /*private void ChangeVolume()
+    {
+        AudioListener.volume = volumeChanger.value;
+        Save();
+    }
+    private void Load()
+    {
+        volumeChanger.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeChanger.value);
+    }*/
     public void OnClickQuitButton()
     {
         Application.Quit();
@@ -56,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameBoard");
     }
-    private void VolumeChanger()
+    /*private void VolumeChanger()
     {
         if (volumeChanger.value == 0)
         {
@@ -68,5 +89,5 @@ public class GameManager : MonoBehaviour
             noSound.SetActive(false);
             sound.SetActive(true);
         }
-    }
+    }*/
 }
