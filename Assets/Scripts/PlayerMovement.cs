@@ -173,6 +173,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            if (!onLog)
+            {
+                Debug.Log("You died by water");
+                FrogDeath();
+                //Trigger death by water
+            }
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Log"))
