@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Transform movePoint;
+    [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private bool onLog = false;
     [SerializeField] private bool noLeft = false;
@@ -15,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool noDown = false;
 
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text gameOverText;
     private int score;
 
     private AudioSource playerMove;
     void Start()
     {
+        gameOverPanel.SetActive(false);
         movePoint.parent = null;
         playerMove = GetComponent<AudioSource>();
         scoreText.text = "0 m";
@@ -184,6 +187,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //Handles frog dying
         gameObject.SetActive(false);
+        gameOverPanel.SetActive(true);
+        gameOverText.text = "Congradulations you made it " + score + " m";
     }
 
     private void PlayerXPositionCorrection()
