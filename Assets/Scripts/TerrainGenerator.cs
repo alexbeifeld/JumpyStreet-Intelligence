@@ -80,7 +80,7 @@ public class TerrainGenerator : MonoBehaviour
 
         else
         {
-            GenerateTerrain(Random.Range(0, 3));
+            GenerateTerrain(Random.Range(0, 2));
             Debug.Log("Generating something new");
         }
     }

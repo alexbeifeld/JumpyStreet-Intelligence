@@ -11,10 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject noSound;
     [SerializeField] private GameObject sound;
     [SerializeField] private GameObject settingsPanel;
-    private bool settingsStatus;
+    public string MainMenu;
+
     void Start()
     {
-        settingsStatus = false;
         settingsPanel.SetActive(false);
         /*if (!PlayerPrefs.HasKey("musicVolume"))
         {
@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
-    
+    private void Update()
+    {
+
+    }
     void FixedUpdate()
     {
         //VolumeChanger();
@@ -59,18 +62,9 @@ public class GameManager : MonoBehaviour
 
     public void OnClickSettingsButton()
     {
-        if (settingsStatus == false)
-        {
-            settingsPanel.SetActive(true);
-            settingsStatus = true;
-            Time.timeScale = 0;
-        }
-        else if (settingsPanel == true)
-        {
-            settingsPanel.SetActive(false);
-            settingsStatus = false;
-            Time.timeScale = 1;
-        }
+        Debug.Log("clicked settings button");
+        settingsPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void OnClickPlayButton()
@@ -90,4 +84,15 @@ public class GameManager : MonoBehaviour
             sound.SetActive(true);
         }
     }*/
+
+    public void RetryButtonClick()
+    {
+        SceneManager.LoadScene(MainMenu);
+    }
+
+    public void ResumeButtonClick()
+    {
+        settingsPanel.SetActive(false);
+        Time.timeScale = 1;
+    }
 }
