@@ -1189,6 +1189,7 @@ MonoBehaviour:
   noSound: {fileID: 0}
   sound: {fileID: 0}
   settingsPanel: {fileID: 568907263}
+  instructionsPanel: {fileID: 0}
   MainMenu: MainMenu
   settings: 0
   gameOverText: {fileID: 1563211314}
@@ -2578,7 +2579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followObject: {fileID: 2100490819}
   followOffset: {x: 0, y: 2.93}
-  speed: 3
+  speed: 4
 --- !u!1 &1975453424
 GameObject:
   m_ObjectHideFlags: 0

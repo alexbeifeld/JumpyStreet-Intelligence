@@ -20,8 +20,11 @@ public class PlayerMovement : MonoBehaviour
     private int score;
 
     private AudioSource playerMove;
+
+    [SerializeField] private GameObject camera;
     void Start()
     {
+        camera = GameObject.Find("Main Camera");
         gameOverPanel.SetActive(false);
         movePoint.parent = null;
         playerMove = GetComponent<AudioSource>();
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CheckBounds();
+        MakeSurePlayerCanMove();
 
         transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
 
@@ -71,10 +75,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
         scoreText.text = score.ToString() + " m";
         RaycastHit2D hitDown = Physics2D.Raycast(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y - .5f), -Vector2.up, 11);
         Debug.DrawRay(new Vector3(movePoint.transform.position.x, movePoint.transform.position.y - .5f), -Vector2.up, Color.red);
@@ -224,9 +224,17 @@ public class PlayerMovement : MonoBehaviour
         {
             noRight = true;
         }
-        if (movePoint.position.y - 1 <= -5)
+        if (movePoint.position.y - 1 <= -5 || movePoint.position.y <= camera.transform.position.y - 3.5)
         {
             noDown = true;
+        }
+    }
+
+    private void MakeSurePlayerCanMove()
+    {
+        if (noUp && noDown && noLeft && noRight)
+        {
+            movePoint.transform.position = new Vector3(movePoint.position.x + 1, movePoint.position.y);
         }
     }
 }
